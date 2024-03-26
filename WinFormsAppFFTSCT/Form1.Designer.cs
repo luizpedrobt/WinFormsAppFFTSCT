@@ -46,7 +46,7 @@ namespace WinFormsAppFFTSCT
             serialOpenBtn = new Button();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            button3 = new Button();
+            plotFFTbtn = new Button();
             collecteDataBtn = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -77,68 +77,70 @@ namespace WinFormsAppFFTSCT
             // FftDisplayPoint
             // 
             FftDisplayPoint.DisplayScale = 1F;
-            FftDisplayPoint.Location = new Point(14, 15);
-            FftDisplayPoint.Margin = new Padding(3, 4, 3, 4);
+            FftDisplayPoint.Location = new Point(12, 11);
             FftDisplayPoint.Name = "FftDisplayPoint";
-            FftDisplayPoint.Size = new Size(477, 569);
+            FftDisplayPoint.Size = new Size(417, 427);
             FftDisplayPoint.TabIndex = 0;
             // 
             // PointDisplayPlot
             // 
             PointDisplayPlot.DisplayScale = 1F;
-            PointDisplayPlot.Location = new Point(451, 16);
-            PointDisplayPlot.Margin = new Padding(3, 4, 3, 4);
+            PointDisplayPlot.Location = new Point(395, 12);
             PointDisplayPlot.Name = "PointDisplayPlot";
-            PointDisplayPlot.Size = new Size(466, 568);
+            PointDisplayPlot.Size = new Size(408, 426);
             PointDisplayPlot.TabIndex = 1;
             // 
             // serialCloseBtn
             // 
-            serialCloseBtn.Location = new Point(113, 26);
+            serialCloseBtn.Location = new Point(99, 20);
+            serialCloseBtn.Margin = new Padding(3, 2, 3, 2);
             serialCloseBtn.Name = "serialCloseBtn";
-            serialCloseBtn.Size = new Size(84, 72);
+            serialCloseBtn.Size = new Size(74, 54);
             serialCloseBtn.TabIndex = 2;
             serialCloseBtn.Text = "Close";
             serialCloseBtn.Click += serialCloseBtn_Click;
             // 
             // chBoxSelectPort
             // 
-            chBoxSelectPort.Location = new Point(17, 104);
+            chBoxSelectPort.Location = new Point(15, 78);
+            chBoxSelectPort.Margin = new Padding(3, 2, 3, 2);
             chBoxSelectPort.Name = "chBoxSelectPort";
-            chBoxSelectPort.Size = new Size(180, 28);
+            chBoxSelectPort.Size = new Size(158, 23);
             chBoxSelectPort.TabIndex = 3;
             // 
             // chBoxBaudRate
             // 
             chBoxBaudRate.Items.AddRange(new object[] { "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200" });
-            chBoxBaudRate.Location = new Point(17, 138);
+            chBoxBaudRate.Location = new Point(15, 104);
+            chBoxBaudRate.Margin = new Padding(3, 2, 3, 2);
             chBoxBaudRate.Name = "chBoxBaudRate";
-            chBoxBaudRate.Size = new Size(180, 28);
+            chBoxBaudRate.Size = new Size(158, 23);
             chBoxBaudRate.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(215, 109);
+            label1.Location = new Point(188, 82);
             label1.Name = "label1";
-            label1.Size = new Size(113, 20);
+            label1.Size = new Size(91, 15);
             label1.TabIndex = 7;
             label1.Text = "Serial COM Port";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(215, 141);
+            label2.Location = new Point(188, 106);
             label2.Name = "label2";
-            label2.Size = new Size(77, 20);
+            label2.Size = new Size(60, 15);
             label2.TabIndex = 8;
             label2.Text = "Baud Rate";
             // 
             // serialOpenBtn
             // 
-            serialOpenBtn.Location = new Point(17, 26);
+            serialOpenBtn.Location = new Point(15, 20);
+            serialOpenBtn.Margin = new Padding(3, 2, 3, 2);
             serialOpenBtn.Name = "serialOpenBtn";
-            serialOpenBtn.Size = new Size(84, 72);
+            serialOpenBtn.Size = new Size(74, 54);
             serialOpenBtn.TabIndex = 13;
             serialOpenBtn.Text = "Open";
             serialOpenBtn.UseVisualStyleBackColor = true;
@@ -152,36 +154,43 @@ namespace WinFormsAppFFTSCT
             groupBox1.Controls.Add(chBoxBaudRate);
             groupBox1.Controls.Add(chBoxSelectPort);
             groupBox1.Controls.Add(serialCloseBtn);
-            groupBox1.Location = new Point(906, 34);
+            groupBox1.Location = new Point(793, 26);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(397, 184);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(347, 138);
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button3);
+            groupBox2.Controls.Add(plotFFTbtn);
             groupBox2.Controls.Add(collecteDataBtn);
-            groupBox2.Location = new Point(906, 224);
+            groupBox2.Location = new Point(793, 168);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(397, 89);
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(347, 67);
             groupBox2.TabIndex = 15;
             groupBox2.TabStop = false;
             // 
-            // button3
+            // plotFFTbtn
             // 
-            button3.Location = new Point(215, 26);
-            button3.Name = "button3";
-            button3.Size = new Size(162, 47);
-            button3.TabIndex = 1;
-            button3.Text = "Plot FFT";
-            button3.UseVisualStyleBackColor = true;
+            plotFFTbtn.Location = new Point(188, 20);
+            plotFFTbtn.Margin = new Padding(3, 2, 3, 2);
+            plotFFTbtn.Name = "plotFFTbtn";
+            plotFFTbtn.Size = new Size(142, 35);
+            plotFFTbtn.TabIndex = 1;
+            plotFFTbtn.Text = "Plot FFT";
+            plotFFTbtn.UseVisualStyleBackColor = true;
+            plotFFTbtn.Click += plotFFTbtn_Click;
             // 
             // collecteDataBtn
             // 
-            collecteDataBtn.Location = new Point(17, 26);
+            collecteDataBtn.Location = new Point(15, 20);
+            collecteDataBtn.Margin = new Padding(3, 2, 3, 2);
             collecteDataBtn.Name = "collecteDataBtn";
-            collecteDataBtn.Size = new Size(162, 47);
+            collecteDataBtn.Size = new Size(142, 35);
             collecteDataBtn.TabIndex = 0;
             collecteDataBtn.Text = "Collect Data";
             collecteDataBtn.UseVisualStyleBackColor = true;
@@ -189,14 +198,13 @@ namespace WinFormsAppFFTSCT
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1396, 636);
+            ClientSize = new Size(1222, 477);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(PointDisplayPlot);
             Controls.Add(FftDisplayPoint);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "FFT Serial Plotter";
             Load += Form1_Load;
@@ -227,7 +235,7 @@ namespace WinFormsAppFFTSCT
         private Button serialCloseBtn;
         private ComboBox chBoxSelectPort;
         private GroupBox groupBox2;
-        private Button button3;
+        private Button plotFFTbtn;
         private Button collecteDataBtn;
     }
 }
