@@ -32,9 +32,10 @@ namespace WinFormsAppFFTSCT
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.Text.ASCIIEncoding asciiEncoding3 = new System.Text.ASCIIEncoding();
-            System.Text.DecoderReplacementFallback decoderReplacementFallback3 = new System.Text.DecoderReplacementFallback();
-            System.Text.EncoderReplacementFallback encoderReplacementFallback3 = new System.Text.EncoderReplacementFallback();
+            System.Text.ASCIIEncoding asciiEncoding1 = new System.Text.ASCIIEncoding();
+            System.Text.DecoderReplacementFallback decoderReplacementFallback1 = new System.Text.DecoderReplacementFallback();
+            System.Text.EncoderReplacementFallback encoderReplacementFallback1 = new System.Text.EncoderReplacementFallback();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             serialPort1 = new SerialPort(components);
             FftDisplayPoint = new ScottPlot.WinForms.FormsPlot();
             PointDisplayPlot = new ScottPlot.WinForms.FormsPlot();
@@ -58,9 +59,9 @@ namespace WinFormsAppFFTSCT
             serialPort1.DataBits = 8;
             serialPort1.DiscardNull = false;
             serialPort1.DtrEnable = false;
-            //asciiEncoding3.DecoderFallback = decoderReplacementFallback3;
-            //asciiEncoding3.EncoderFallback = encoderReplacementFallback3;
-            serialPort1.Encoding = asciiEncoding3;
+            //asciiEncoding1.DecoderFallback = decoderReplacementFallback1;
+            //asciiEncoding1.EncoderFallback = encoderReplacementFallback1;
+            serialPort1.Encoding = asciiEncoding1;
             serialPort1.Handshake = Handshake.None;
             serialPort1.NewLine = "\n";
             serialPort1.Parity = Parity.None;
@@ -205,6 +206,7 @@ namespace WinFormsAppFFTSCT
             Controls.Add(groupBox1);
             Controls.Add(PointDisplayPlot);
             Controls.Add(FftDisplayPoint);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "FFT Serial Plotter";
             Load += Form1_Load;
