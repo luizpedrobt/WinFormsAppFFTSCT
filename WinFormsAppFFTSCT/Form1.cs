@@ -9,12 +9,12 @@ namespace WinFormsAppFFTSCT
     public partial class Form1 : Form
     {
         int nOfSamples;
-        double[] collectedData = new double[128];
+        double[] collectedData = new double[16];
         int sampleRate = 125000000;
         public Form1()
         {
             InitializeComponent();
-            nOfSamples = 128;
+            nOfSamples = 16;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -50,6 +50,7 @@ namespace WinFormsAppFFTSCT
             if (serialPort1.IsOpen)
             {
                 serialPort1.Close();
+                FftDisplayPoint.Plot.Clear();
 
                 MessageBox.Show("Serial Port " + serialPort1.PortName + " succesfully closed.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -76,22 +77,27 @@ namespace WinFormsAppFFTSCT
 
         private double[] returnDataArray()
         {
-            string notFormattedData;
-            int count = 0;
-            double currentData;
-            double[] collectedData = new double[nOfSamples];
+            byte[] floatBytes = new byte[4];
+            double[] convertedData = new double[nOfSamples];
+            int bytesTr = 0;
 
-            while ((serialPort1.IsOpen) && (count < nOfSamples))
+            while( bytesTr < nOfSamples * 4 )
             {
-                notFormattedData = serialPort1.ReadLine();
-                if (double.TryParse(notFormattedData, out currentData))
+                byte byteRead = (byte)serialPort1.ReadByte();
+
+                floatBytes[bytesTr % 4] = byteRead;
+
+                if((bytesTr + 1) % 4 == 0)
                 {
-                    collectedData[count] = currentData;
-                    count++;
+                    convertedData[bytesTr / 4] = (double)BitConverter.ToSingle(floatBytes, 0);
+                    floatBytes = new byte[4];
                 }
+
+                bytesTr++;
             }
-            return (collectedData);
+             return(convertedData);
         }
+
         private void plotFFTbtn_Click(object sender, EventArgs e)
         {
             System.Numerics.Complex[] aqsData_FFT = FftSharp.FFT.Forward(collectedData);
